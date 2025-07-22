@@ -1,4 +1,4 @@
-Discord_Token = "MTM3OTMwMzgzOTY5NzYwMDY3Ng.Gc6nPx.V6W10949kF-DU4zCEdYRlhfdHRbxXIf0hyBJPg"
+Discord_Token = "MTM3OTMwMzgzOTY5NzYwMDY3Ng.Gm19Kh.ckrwBvvGbM9IG0TUaCZAj5_T6LWiYU1XC_np4I"
 
 Webhooks = {
     'https://canary.discord.com/api/webhooks/1393300668151758918/Mqzns8wYnjdzKufksfW6_wC6bNqJJhRs5-pkuElG9C5xMCTa6VsDOhA0X11g6ioh4BVi'
