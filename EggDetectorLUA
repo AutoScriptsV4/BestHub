@@ -1,0 +1,120 @@
+-- Services
+local Players = gameGetService(Players)
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayerWaitForChild(PlayerGui)
+
+-- GUI Setup
+local ScreenGui = Instance.new(ScreenGui)
+ScreenGui.Name = EggESPProUI
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = PlayerGui
+
+-- UI Corner Utility
+local function roundify(object, radius)
+	local corner = Instance.new(UICorner)
+	corner.CornerRadius = UDim.new(0, radius)
+	corner.Parent = object
+end
+
+-- Shadow Utility
+local function addShadow(parent)
+	local shadow = Instance.new(ImageLabel)
+	shadow.Name = Shadow
+	shadow.Image = rbxassetid1316045217
+	shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+	shadow.ImageTransparency = 0.5
+	shadow.ScaleType = Enum.ScaleType.Slice
+	shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+	shadow.Size = UDim2.new(1, 30, 1, 30)
+	shadow.Position = UDim2.new(0, -15, 0, -15)
+	shadow.BackgroundTransparency = 1
+	shadow.ZIndex = 0
+	shadow.Parent = parent
+end
+
+-- Main Frame
+local Frame = Instance.new(Frame)
+Frame.Name = MainFrame
+Frame.Size = UDim2.new(0, 220, 0, 190)
+Frame.Position = UDim2.new(0.7, 0, 0.3, 0)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BackgroundTransparency = 0.15
+Frame.BorderSizePixel = 0
+Frame.ZIndex = 2
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+roundify(Frame, 8)
+addShadow(Frame)
+
+-- Title
+local Title = Instance.new(TextLabel)
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.BackgroundTransparency = 1
+Title.Text = ✨ Egg ESP Pro
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextStrokeTransparency = 0.8
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 18
+Title.Parent = Frame
+
+-- Reusable button creator
+local function createButton(text, positionY, textColor, hoverColor)
+	local btn = Instance.new(TextButton)
+	btn.Size = UDim2.new(1, -20, 0, 28)
+	btn.Position = UDim2.new(0, 10, 0, positionY)
+	btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	btn.Text = text
+	btn.TextColor3 = textColor or Color3.new(1, 1, 1)
+	btn.Font = Enum.Font.Gotham
+	btn.TextSize = 15
+	btn.BorderSizePixel = 0
+	btn.AutoButtonColor = false
+	btn.ZIndex = 3
+	btn.Parent = Frame
+	roundify(btn, 6)
+
+	-- Hover effect
+	btn.MouseEnterConnect(function()
+		btn.BackgroundColor3 = hoverColor or Color3.fromRGB(60, 60, 60)
+	end)
+	btn.MouseLeaveConnect(function()
+		btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	end)
+
+	return btn
+end
+
+-- ESP Toggle
+local espOn = true
+local ESPToggle = createButton(👁️ ESP ON, 40)
+ESPToggle.MouseButton1ClickConnect(function()
+	espOn = not espOn
+	ESPToggle.Text = 👁️ ESP  .. (espOn and ON or OFF)
+end)
+
+-- Auto Randomize Toggle
+local autoOn = false
+local AutoToggle = createButton(⚙️ Auto Randomize OFF, 75)
+AutoToggle.MouseButton1ClickConnect(function()
+	autoOn = not autoOn
+	AutoToggle.Text = ⚙️ Auto Randomize  .. (autoOn and ON or OFF)
+end)
+
+-- Randomize Once Button
+local RandomBtn = createButton(🎲 Randomize Once, 110, Color3.fromRGB(255, 120, 120), Color3.fromRGB(255, 150, 150))
+RandomBtn.MouseButton1ClickConnect(function()
+	print(Randomizing once...)
+end)
+
+-- Label - Randomize In
+local Label = Instance.new(TextLabel)
+Label.Size = UDim2.new(1, -20, 0, 25)
+Label.Position = UDim2.new(0, 10, 0, 145)
+Label.BackgroundTransparency = 1
+Label.Text = ⌛ Randomize In OFF
+Label.TextColor3 = Color3.fromRGB(160, 160, 160)
+Label.Font = Enum.Font.Gotham
+Label.TextSize = 14
+Label.ZIndex = 2
+Label.Parent = Frame
