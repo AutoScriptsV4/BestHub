@@ -9,4 +9,4 @@ end
 identifyexecutor = fake_identify
 getgenv().identifyexecutor = fake_identify
 
-loadstring(game:HttpGet("https://cdn.sourceb.in/bins/D7xP0vn3q9/0"))()
+loadstring(game:HttpGet("https://cdn.sourceb.in/bins/Zjq45Jg5xx/0"))()
